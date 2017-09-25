@@ -1,0 +1,74 @@
+<html>
+	<head>
+<!--Author Dinesh G
+mail: 21gdinesh@gmail.com
+-->
+		<style>
+		.circle{
+		border-radius: 50%;
+		border-style: solid;
+		
+		border-width : 5px;
+		}
+		.set1
+		{
+		animation: spin_r 10s linear infinite;
+		//border-color: #ffffff #0000ff  #000000 #ffffff ;
+		border-color : white black orange white  ;
+		}
+		.set2
+		{
+		animation: spin_r 10s linear infinite;
+		border-color : white black orange white ;
+		}
+		@keyframes spin_r {
+			0% { transform: rotate(0deg) ; }  
+			//40% {transform: rotate(180deg); }
+			50% { transform: rotate(180deg); }
+			//90% { transform: rotate(360deg) ; }
+			100% { transform: rotate(360deg); }
+		}
+		
+		@keyframes spin_l {
+			0% { transform: rotate(360deg) ; }  
+			//40% {transform: rotate(180deg); }
+			50% { transform: rotate(180deg); }
+			//90% { transform: rotate(360deg) ; }
+			100% { transform: rotate(0deg); }
+		}
+		</style>
+		<script>
+			window.addEventListener('load', function() {
+			
+			create_circle();
+			})
+			function create_circle(){
+			var html_str = "<div class='circle' style='height='"+   ">";
+			var html_end = "</div>";
+			var num_of_circle=10;
+			var dimension=100;
+			var element="";
+			var i = num_of_circle, height = 0,width = 0;
+			while(i>0){
+				 height = dimension + i*dimension/num_of_circle;
+				 width =  dimension + i*dimension/num_of_circle;
+				 if(i%2)
+				element = element +"<div class='circle set1' style='height:"+height.toString()+"px; width:"+width.toString()+"px;' >";
+				else
+				element = element +"<div class='circle set2' style='height:"+height.toString()+"px; width:"+width.toString()+"px;' >";
+				i--;
+			}
+			i=num_of_circle;
+			while(i>0){
+				element = element +html_end;
+				i--;
+			}
+			document.body.innerHTML = element;
+			}
+		</script>
+	</head>
+	<body>
+		<div class='circle' style='height:50px; width:50px;'>
+		</div>
+	</body>
+</html>
