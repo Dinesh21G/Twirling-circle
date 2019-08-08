@@ -1,0 +1,95 @@
+<html>
+	<head>
+<!--Author Dinesh G
+mail: 21gdinesh@gmail.com
+-->
+		<style>
+		:root{
+			--line-width : 10px;
+			--color1 : black;
+			--color2 : blue;
+			--color3 : white;
+		}
+		html {
+			overflow: hidden;
+			overflow-x: hidden;
+		}
+		.circle{
+		background-color : var(--color1);
+		left:50vw;
+		top:20vh;
+		border-radius: 50%;
+		border-style: solid;
+		border-width : var(--line-width);
+		
+		}
+		.set1
+		{
+		animation: spin_r 20s linear infinite;
+		//border-color: #ffffff #0000ff  #000000 #ffffff ;
+		border-color : var(--color1) var(--color2) var(--color1) var(--color2) ;
+		}
+		.set2
+		{
+		animation: spin_r 20s linear infinite;
+		border-color :  var(--color1) var(--color2) var(--color1) var(--color2) ;
+		}
+		@keyframes spin_r {
+			0% { transform : rotate(0deg); }
+			
+			35% { transform : rotate(180deg); }
+			45% { transform : rotate(176deg); }
+			
+			75% { transform : rotate(316deg); }
+			80% { transform : rotate(300deg); }
+			
+			100% { transform : rotate(360deg); }
+		}
+		
+		@keyframes spin_l {
+			0% { transform : rotate(0deg); }
+			
+			35% { transform : rotate(180deg); }
+			45% { transform : rotate(1176deg); }
+			
+			75% { transform : rotate(316deg); }
+			80% { transform : rotate(300deg); }
+			
+			100% { transform : rotate(360deg); }
+		}
+		</style>
+		<script>
+			window.addEventListener('load', function() {
+			
+			create_circle();
+			})
+			function create_circle(){
+			var html_str = "<div class='circle' style='height='"+   ">";
+			var html_end = "</div>";
+			var num_of_circle=10;
+			var dimension=200;
+			var element="";
+			var i = num_of_circle, height = 0,width = 0;
+			while(i>0){
+				 height = dimension + i*dimension/num_of_circle;
+				 width =  dimension + i*dimension/num_of_circle;
+				 if(i%2)
+				element = element +"<div class='circle set1' style='height:"+height.toString()+"px; width:"+width.toString()+"px;' >";
+				else
+				element = element +"<div class='circle set2' style='height:"+height.toString()+"px; width:"+width.toString()+"px;' >";
+				i--;
+			}
+			i=num_of_circle;
+			while(i>0){
+				element = element +html_end;
+				i--;
+			}
+			document.body.innerHTML = element;
+			}
+		</script>
+	</head>
+	<body>
+		<div class='circle' style='height:100px; width:100px;'>
+		</div>
+	</body>
+</html>
